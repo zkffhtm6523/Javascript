@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보</title>
+    <style>
+        .container {
+            width: 800px;
+            height: 300px;
+            margin: 30px auto;
+            border: 1px solid black;
+        }
+        h3 {
+            text-align: center;
+        }
+        img {
+            box-shadow: 5px 5px 5px 5px silver;
+            width: 200px;
+            height: 200px;
+            margin-left: 50px;
+        }
+        img:hover {
+            box-shadow: -5px -5px silver;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+            <h3>가위, 바위, 보를 선택하시오.</h3>
+            <img onclick="Rock()" src="images/rock.png">
+            <img onclick="Scissors()" src="images/scissors.png">
+            <img onclick="Paper()" src="images/paper.png">
+    </div>
+    
+    <script>
+        var go = confirm("게임을 하시겠습니까?");
+        var cnt = 0;
+        var win = 0;
+        var lose = 0;
+        var draw = 0;
+
+        function Rock() {
+            while(go == true){
+            var ran = Math.floor(Math.random() * 3);
+            if(ran == 0) {
+                alert("DRAW");
+                cnt++;
+                draw++;
+                alert(cnt + "전 "+ win + "승 " + lose + "패 " + draw + "무");
+                go = confirm("게임을 하시겠습니까?");
+                break;
+            } else if(ran == 1){
+                alert("USER WIN");
+                cnt++;
+                win++;
+                alert(cnt + "전 "+ win + "승 " + lose + "패 " + draw + "무");
+                go = confirm("게임을 하시겠습니까?");
+                break;
+            } else {
+                alert("COM WIN");
+                cnt++;
+                lose++;
+                alert(cnt + "전 "+ win + "승 " + lose + "패 " + draw + "무");
+                go = confirm("게임을 하시겠습니까?");
+                break;
+            }
+            }   
+        }
+        
+        function Scissors() {
+            while(go == true){
+            var ran = Math.floor(Math.random() * 3);
+            if(ran == 0) {
+                alert("COM WIN");
+                cnt++;
+                lose++;
+                alert(cnt + "전 "+ win + "승 " + lose + "패 " + draw + "무");
+                go = confirm("게임을 하시겠습니까?");
+                break;
+            } else if(ran == 1){
+                alert("DRAW");
+                cnt++;
+                draw++;
+                alert(cnt + "전 "+ win + "승 " + lose + "패 " + draw + "무");
+                go = confirm("게임을 하시겠습니까?");
+                break;
+            } else {
+                alert("USER WIN");
+                cnt++;
+                win++;
+                alert(cnt + "전 "+ win + "승 " + lose + "패 " + draw + "무");
+                go = confirm("게임을 하시겠습니까?");
+                break;
+            }
+            }
+        }
+
+        function Paper() {
+            while(go == true){
+            var ran = Math.floor(Math.random() * 3);
+            if(ran == 0) {
+                alert("USER WIN");
+                cnt++;
+                win++;
+                alert(cnt + "전 "+ win + "승 " + lose + "패 " + draw + "무");
+                go = confirm("게임을 하시겠습니까?");
+                break;
+            } else if(ran == 1){
+                alert("COM WIN");
+                cnt++;
+                lose++;
+                alert(cnt + "전 "+ win + "승 " + lose + "패 " + draw + "무");
+                go = confirm("게임을 하시겠습니까?");
+                break;
+            } else {
+                alert("DRAW");
+                cnt++;
+                draw++;
+                alert(cnt + "전 "+ win + "승 " + lose + "패 " + draw + "무");
+                go = confirm("게임을 하시겠습니까?");
+                break;
+            }
+            }
+        }
+
+        
+    </script>
+</body>
+</html>

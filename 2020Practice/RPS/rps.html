@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보</title>
+    <style>
+        .container{width: 600px; margin: 0 auto;}
+        table, th, td{border: 1px solid black; border-collapse: collapse;}
+        button{width: 100%; background-color: pink; font-weight: bold;}
+        button:hover{background-color: plum;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table>
+            <caption><h1>가위바위보</h1></caption>
+            <tr>
+                <script>
+                var rps = ['가위','바위','보'];
+                var cnt = 0;
+                var victory = 0;
+                var tie = 0;
+                var defeat = 0;
+                var check = true;
+                while(check){
+                    var user = prompt('가위,바위,보');
+                    var com = rps[parseInt(Math.random()*3)];
+                    
+                    if(user == '가위'){
+                        document.write("<td><img src='images/scissors.png'></td>");
+                        if(com == '보'){
+                            document.write("<td><img src='images/paper.png'></td>");
+                            victory++;
+                        }else if(com == '가위'){
+                            document.write("<td><img src='images/scissors.png'></td>");
+                            tie++;
+                        }else if(com == '바위'){
+                            document.write("<td><img src='images/rock.png'></td>");
+                            defeat++;
+                        }
+                    }else if(user == '바위'){
+                        document.write("<td><img src='images/rock.png'></td>");
+                        if(com == '보'){
+                            document.write("<td><img src='images/paper.png'></td>");
+                            defeat++;
+                        }else if(com == '가위'){
+                            document.write("<td><img src='images/scissors.png'></td>");
+                            victory++;
+                        }else if(com == '바위'){
+                            document.write("<td><img src='images/rock.png'></td>");
+                            tie++;
+                        }
+                    }else if(user == '보'){
+                        document.write("<td><img src='images/rock.png'></td>");
+                        if(com == '보'){
+                            document.write("<td><img src='images/paper.png'></td>");
+                            tie++;
+                        }else if(com == '가위'){
+                            document.write("<td><img src='images/scissors.png'></td>");
+                            defeat++;
+                        }else if(com == '바위'){
+                            document.write("<td><img src='images/rock.png'></td>");
+                            victory++;
+                        }
+                    }else{
+                        alert('잘못 입력하셨습니다')
+                    }
+                    cnt++;
+                    setTimeout(function(){
+                        alert("총 "+cnt+"전/승 : "+victory+"/무 : "+tie+"/패 : "+defeat);
+                    },2000);
+                    setTimeout(function(){
+                        check = confirm('계속하시겠습니까?');
+                        location.reload();
+                    },3000);
+                    break;
+                }
+                document.write("<tr><td colspan = '2'>총 "+cnt+"전/승 : "+victory+"/무 : "+tie+"/패 : "+defeat+"</td></tr>");
+            </script>
+        </button>
+    </table>
+</div>
+</body>
+<script>
+    
+   
+</script>
+</html>

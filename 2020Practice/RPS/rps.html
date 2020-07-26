@@ -17,20 +17,21 @@
         <h1>가위바위보</h1>
         <button onclick="go()">시작</button>
         <table style="border: 1px solid black;"></table>
+        <div style="width: 500px; margin: 0 auto;"></div>
         <script>
             var rps = ['가위','바위','보'];
             var cnt = 0;
             var victory = 0;
             var tie = 0;
             var defeat = 0;
-            var check = true;
             
             function go(){
+                document.body.innerHTML = "";
+                document.write("<div style='width : 600px; margin : 0 auto;'>");
                 document.write("<table style='border: 1px solid black;'><caption><h1>가위바위보</h1></caption>");
                 document.write("<tr>");
-                while(check){
-                    var user = prompt('가위,바위,보');
-                    var com = rps[parseInt(Math.random()*3)];
+                var user = prompt('가위,바위,보');
+                var com = rps[parseInt(Math.random()*3)];
                     
                 if(user == '가위'){
                     document.write("<td style='border: 1px solid black;'><img src='images/scissors.png'></td>");
@@ -70,19 +71,16 @@
                     }
                 }else{
                     alert('잘못 입력하셨습니다')
-                    break; 
-                }
+                    }
                 cnt++;
-                break;
-            }
                 document.write('</tr>');
-                document.write("<tr style='text-align: center;'><td style='border: 1px solid black;' colspan = '2'><button onclick='go()'style='width: 100%;'><h3>시작</h3></button></td></tr>");
+                document.write("<tr style='text-align: center;'><td style='border: 1px solid black;' colspan = '2'><button onclick='go()'style='width: 100%;background-color:pink;'><h3>시작</h3></button></td></tr>");
                 document.write("<tr style='text-align: center;'><td style='border: 1px solid black;' colspan = '2'>총 : "+cnt+" / 승 : "+victory+" / 무 : "+tie+" / 패 : "+defeat+"</td></tr>");
                 document.write('</table>');
+                document.write("</div>");
         }
             
         </script>
-        <tr></tr>
 </div>
 </body>
 </html>

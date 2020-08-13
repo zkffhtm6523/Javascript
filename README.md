@@ -1,4 +1,4 @@
-<h1>Jquery 사용법</h1>
+<h1 id = "top">Jquery 사용법</h1>
 <h3>- JQUERY 주요 함수 -</h3>
 
 1. 이벤트 처리
@@ -328,16 +328,16 @@ $("#user_id").val("jquery") //userID의 value 받아오기
 var result_1 = $("#chk1").prop("checked");
 
 // prepend() : 선택 태그 안의 맨 앞에 추가
-$("#listZone").prepend("<li>맨 앞에 추가</li>");
+$("#listZone").prepend("<li></li>");
 
 // append() : 선택 태그 안의 맨 뒤에 추가
-$("#listZone").append("<li>맨 뒤에 추가</li>");
+$("#listZone").append("<li></li>");
 
 // after() : 뒤에 붙임
-$("#wrap p:eq(2)").after("<p>내용3뒤에 추가</p>").css("color", "red");
+$("#wrap p:eq(2)").after("<p></p>").css("color", "red");
 
 // before() : 앞에 붙임
-$("#wrap p:eq(1)").before("<p>내용2앞에 추가</p>").css("background", "yellow");
+$("#wrap p:eq(1)").before("<p></p>").css("background", "yellow");
 
 // clone() : 복제
 var copyObj = $(".box1").children().clone(); 
@@ -349,3 +349,5 @@ $(".box2").remove();
 $(".box3").empty();
 
 </pre>
+
+<a href = "#top"><button>위로 가기</button></a>

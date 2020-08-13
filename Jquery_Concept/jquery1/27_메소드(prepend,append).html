@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <ul id="listZone">
+        <li>리스트</li>
+    </ul>
+    <script>
+        $(document).ready(function() {
+            // 선택한 요소 맨 앞에 추가하는 방법 2가지
+            $("#listZone").prepend("<li>맨 앞에 추가</li>");
+            $("<li>맨 앞에 추가 2</li>").prependTo("#listZone");
+
+            // 선택한 요소 맨 뒤에 추가하는 방법 2가지
+            $("#listZone").append("<li>맨 뒤에 추가</li>");
+            $("<li>맨 뒤에 추가 2</li>").appendTo("#listZone");
+        });
+    </script>
+</body>
+</html>

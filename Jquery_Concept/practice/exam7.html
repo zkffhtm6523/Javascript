@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //prototype : 객체에는 prototype을 무조건 가지고 있음
+        // 공용 메모리 느낌..객체를 여러개 만들어도 무조건 1개 공유
+        //ES5는 prototype, ES6는 class 개념
+        //멤버필드 추가 Array라는 클래스에
+        
+        Array.prototype.arr = []
+        var objArr = new Array()
+        objArr.arr = ['A','B','C']
+        
+        //메소드 추가
+        Array.prototype.forEach2 = function(ggggg){
+            for(var i=0; i<this.arr.length; i++){
+                var item = this.arr[i]
+
+                ggggg(item)
+            }
+        }
+
+        //1번
+        var ggggg = function(a){
+            alert(a)
+        }
+        //forEach2에 매개변수 ggggg라는 함수 대입
+        //실행함
+        // objArr.forEach2(ggggg)
+
+        var objArr2= new Array();
+        objArr2.arr = ['z','z']
+        objArr2.forEach2(ggggg)
+    </script>
+</body>
+</html>

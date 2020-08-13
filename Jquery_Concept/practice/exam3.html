@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //https://www.hanbit.co.kr/store/books/look.php?p_code=B8227329776
+        //sitemesh 소멸된 소스 프로젝트
+        //dart, flutter, vue
+        var obj = {
+            name: '홍길동',
+            age : 10,
+            //기본 function
+            showName : function(){
+                //this는 obj를 뜻한다
+                console.log(`name : ${this.name} ,age : ${this.age}`)
+            }
+        }
+        obj.showName()
+
+        var obj2 = {
+            name: '홍길동',
+            //arrow function
+            showName : ()=>{
+                //this는 java로 따지면 object를 뜻함, 
+                console.log(this.name == '')
+                console.log(`name : ${this.name}, age : ${this.age}`)
+            }
+        }
+        obj2.showName()
+    </script>
+</body>
+</html>

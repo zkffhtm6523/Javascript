@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--https://meetup.toast.com/posts/86-->
+<body>
+    <script>
+        function foo(){
+            if(true){
+                var color = 'blue'
+            }
+            console.log(`color : ${color}`)
+            //함수레벨 스코프라서 불러와짐. let하면 안됨
+        }
+    //java는 블록레벨 스코프
+    //js는 함수레벨 스코프 : 어디서 실행하든 함수단위로 살아있다
+    foo()
+    </script>
+    
+</body>
+</html>

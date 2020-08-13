@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filter</title>
+</head>
+<body>
+    <div id="divResult"></div>
+    <script>
+
+        
+        Array.prototype.arr = []
+        //익명함수의 임의의 변수 fn을 파라미터에 선언
+        Array.prototype.filter2 = function(fn){
+            var myArr = []
+            for(var i=0; i < arr2.length;i++){
+                var item = arr2[i]
+                if(fn(item)){
+                    myArr.push(item)//java의 add와 같음
+                }
+            }
+            return myArr
+        }
+        var arr2 = [5,253,55,51,50]
+        console.log()
+
+        function hhh(zzzz){
+            return zzzz+'1'
+        }
+        var result2 = arr2.filter2(function(zzzz){
+                return zzzz % 5 == 0
+        }) //함수타입 매개변수
+
+        console.log(`arr2 : ${arr2}`)
+        console.log(`result2 : ${result2}`)
+    </script>
+</body>
+</html>

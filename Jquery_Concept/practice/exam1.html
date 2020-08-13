@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="result" class="cls">
+        <!-- https://joshua1988.github.io/web-development/translation/essential-es6-features-for-vuejs/ -->
+    </div>
+    <script>
+        var fn1 = function(n1, n2){
+            return n1+n2
+        }
+        //요즘 쓰는 거 아님...브라우저가 id를 등록해줘서 밑에처럼 저렇게 쓸 수 있음
+        // var eleResult = document.getElementById('result')
+
+        //범용성이 높음
+        var eleResult = document.getElementById('result')
+
+        //jquery를 안 쓰는 이유가 이게 표준화됨
+        var eleclses = document.querySelector('.cls')
+        var eleclses = document.querySelectorAll('.cls')
+
+        var res = fn1(5,10)
+        //아이디는 그냥 받아올 수 있음.
+        //클래스는 queryselector로 받아올 수 있음
+
+        //표준화된지 1년도 안됨
+        result.innerHTML = res
+
+        //ES6(ECMA script가 정식 명칭) : ES6 전까지 프로토타입, 6부터 클래스 도입
+        
+        //1. 변수 변경
+        let ab = 10;
+        const cc;
+        var dd; //안 쓰게 될 가능성 높음
+
+        //2. Arrow function
+
+        var fn2 = (n1, n2) =>{
+            return n1+n2;
+        }
+
+        //3. 문자열 안에 값 삽입 가능
+        //java
+        // ` : brave accent
+
+        let re = `안녕하세요 제 나이는 ${ab}입니다.`
+        let re2 = '안녕하세요 제 나이는'+ab+'입니다.'
+        //jsp의 el식과 겹친다. jsp에서는 \${ab}를 써야한다.
+    </script>
+</body>
+</html>

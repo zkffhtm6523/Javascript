@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <p>내용1</p> 
+        <p>내용2</p>
+        <p>내용3</p>
+    </div>
+    <script>
+        $(document).ready(function() {
+            // 선택 요소 뒤에 추가하는 방법 2가지
+            $("#wrap p:eq(2)").after("<p>내용3뒤에 추가</p>").css("color", "red");
+            $("<p>내용2뒤에 추가</p>").insertAfter("#wrap p:eq(1)").css("color", "blue");
+
+            // 선택 요소 앞에 추가하는 방법 2가지
+            $("#wrap p:eq(1)").before("<p>내용2앞에 추가</p>").css("background", "yellow");
+            $("<p>내용1앞에 추가</p>").insertBefore("#wrap p:eq(0)").css("background", "lightgray");
+        });
+    </script>
+</body>
+</html>

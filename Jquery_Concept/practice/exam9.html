@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function show(item){
+            console.log(item)
+        }
+        var myFunc = function(item){
+            console.log('A : '+item)
+        }
+
+        //하드코딩된 함수, 무조건 show만 호출함
+        function forEach(arr, fn){
+            for(var i=0; i<arr.length; i++){
+                var item = arr[i]
+                fn(item)
+            }
+        }
+        var arr = [1,2,3]
+        forEach(arr, myFunc)
+
+    </script>
+</body>
+</html>

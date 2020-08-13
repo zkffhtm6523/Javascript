@@ -38,3 +38,15 @@ $(function() {
    $("div.util").css("border", "4px solid pink") // div 안의 .util
    $(".left, .right, #banner").css("border", "4px solid gray") // 개별 요소
 });</pre>
+<pre>
+// P태그에 마우스를 올렸을 때 -> P태그에 Class 추가
+$("p").on("mouseenter", function() {
+   $(this).addClass("current");
+});
+
+// P태그에 마우스를 뗄 때 -> P태그에 Class 제거
+$("p").on("mouseleave", function() {
+   $(this).removeClass("current");
+});
+</pre>
+

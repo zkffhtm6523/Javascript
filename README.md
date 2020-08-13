@@ -1,6 +1,3 @@
-<style>
- h1{text-align: center;}
-</style>
 <h1 id = "top">Jquery 사용법</h1>
 <h3>- JQUERY 주요 함수 -</h3>
 

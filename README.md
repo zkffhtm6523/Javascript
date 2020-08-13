@@ -347,4 +347,5 @@ $(".box2").remove();
 
 // empty() : 하위 태그 삭제
 $(".box3").empty();
+
 </pre>

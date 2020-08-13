@@ -12,9 +12,12 @@
 - text() : html 태그를 무시하고 텍스트만 설정하는 함수 (js: innerTEXT)
 - css() : css 설정을 하는 함수
 - attr() : 속성을 설정하는 함수
+<br>
 3. 애니메이션 효과 함수
 - show(), hide(), toggle() ...<br>
-   
+<br>
+4. 배열 : $(배열).each() ,$.each() //배열에 접근해서 순차적으로 인덱스와 값의 정보를 얻어올 때 사용하는 메소드
+
 <h3>- JQUERY 기법 -</h3>
 
 1. css 함수 - 체이닝(chainning) 기법
@@ -27,7 +30,7 @@ $("p").css({
     height:"30",
 });
 
-<h3>- JQUERY 예제 1 -</h3>
+<h3>- JQUERY 예제(선택자/스타일) -</h3>
 <pre>
 $(function() {
    $("p").css("border", "4px solid red"); // 태그(요소)
@@ -105,5 +108,43 @@ $(".txt + p").css(style_2);     // 내용3, 다음
 $(".txt1").parents().css("border", "2px dashed #00f"); // 모든 부모
 $(".txt1").parents("div").css("border", "2px dashed #00f"); // 특정 부모
 $(".txt1").closest("div").css("border", "2px dashed red"); // 가장 가까운 상위 요소
+
+//first/last 선택자
+$("#menu li:first").css("background", "yellow");
+$("#menu li:last").css("background", "cyan");
+
+//first/last 선택자 - 함수, first()/last() 만 가능
+$("#menu li").first().css("background", "yellow");
+$("#menu li").last().css("background", "cyan");
+
+//even/odd 선택자 - 인덱스는 0번부터 시작
+$("#menu li:even").css("background", "yellow");
+$("#menu li:odd").css("background", "cyan");
+
+//eq(), lt(), gt() 선택자 - 인덱스는 0번부터 시작
+$("#menu li:eq(2)").css("background", "pink"); // 2번 인덱스 선택
+$("#menu li:lt(2)").css("background", "pink"); // 2번보다 작은 인덱스 선택
+$("#menu li:gt(5)").css("background", "pink"); // 5번보다 큰 인덱스 선택
+
+//first-of-type / last-of-type 선택자
+//first/last : li 중에서 첫번째, 마지막 요소에 적용
+$("li:first").css("color", "red");
+$("li:last").css("color", "blue");
+
+//first-of-type/last-of-type : li의 그룹 중에서 첫번째, 마지막 요소에 적용
+$("li:first-of-type").css("border", "3px solid orange");
+$("li:last-of-type").css("border", "3px solid pink");
+
+//nth-child(2), nth-child(2n), nth-last-of-type(3)
+$("li:nth-child(5)").css("background", "pink"); // 각 그룹에서 5번 인덱스 선택
+$("li:nth-child(3n)").css("border", "3px solid green"); // 3의 배수, 순서상 3번째
+$("li:nth-last-of-type(3)").css("background", "yellow"); // 각 그룹의 마지막에서 3번째 선택
+
+//only-child : 부모 요소에게 자식 요소가 하나뿐인 것을 선택
+$("li:only-child").css("border", "4px solid red"); //여러 li중에서 ul안에 li가 한 개만 있는 것 선택
+
+//slice(a, b) : 함수로만 사용
+$("li").slice(3,5).css("background", "pink"); // 0번부터 시작, 3번부터 5번 앞까지 선택 (5번은 선택 안됨)
 </pre>
 
+<h3>- JQUERY 예제(선택자/스타일) -</h3>

@@ -1,6 +1,6 @@
 # Javascript & Jquery
 <h1>Jquery 사용법</h1>
-<h3>JQUERY 주요 함수</h3>
+<h3>- JQUERY 주요 함수 -</h3>
 1. 이벤트 처리<br>
 - click, mouseover, mouseout ...<br>
 2. DOM 객체 처리 함수<br>
@@ -11,7 +11,7 @@
 3. 애니메이션 효과 함수<br>
 - show(), hide(), toggle() ...<br>
    <br>
-<h3>JQUERY 기법</h3>
+<h3>- JQUERY 기법 -</h3>
 <pre>
 1. css 함수 - 체이닝(chainning) 기법
 $("p").css("backgroundColor", "yellow").css("width", "150").css("height", "30");
@@ -23,7 +23,7 @@ $("p").css({
     height:"30",
 });</pre>
 
-<h3>JQUERY 예제 1</h3>
+<h3>- JQUERY 예제 1 -</h3>
 <pre>
 $(function() {
    $("p").css("border", "4px solid red"); // 태그(요소)

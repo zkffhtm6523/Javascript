@@ -48,5 +48,7 @@ $("p").on("mouseenter", function() {
 $("p").on("mouseleave", function() {
    $(this).removeClass("current");
 });
+
+
 </pre>
 

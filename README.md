@@ -5,7 +5,8 @@
  - on/off 실행 : on(이벤트명, 함수명) - 이벤트에 대한 함수를 따로 작성하여 사용하는 방법(이 함수를 다른 곳에서도 사용 가능, 코드가 길어짐)
                  on(이벤트명, 익명함수) - 이벤트에 대한 함수를 익명함수로 바로 작성하는 방법(코드가 간결해짐, 익명함수를 해당 이벤트 전용 사용)
  - 즉시 실행 : click(), dbclick(), hover(), mouseenter(), mouseleave(), mouseover(), keypress(), keydown(), keyup()
-2. DOM 객체 처리 함수<br>
+ 
+2. DOM 객체 처리 함수
 - html() : html 태그를 포함하여 텍스트를 설정하는 함수 (js: innerHTML)<br>
 - text() : html 태그를 무시하고 텍스트만 설정하는 함수 (js: innerTEXT)<br>
 - css() : css 설정을 하는 함수<br>
@@ -39,8 +40,7 @@ $(function() {
    $("#visual ~ #footer").css("border", "4px solid purple"); // #visual의 다음 형제인 #footer
    $("div.util").css("border", "4px solid pink") // div 안의 .util
    $(".left, .right, #banner").css("border", "4px solid gray") // 개별 요소
-});</pre>
-<pre>
+});
 // P태그에 마우스를 올렸을 때 -> P태그에 Class 추가
 $("p").on("mouseenter", function() {
    $(this).addClass("current");

@@ -348,6 +348,15 @@ $(".box2").remove();
 // empty() : 하위 태그 삭제
 $(".box3").empty();
 
-</pre>
+// replaceWith() : 태그를 바꿀 수 있음
+//$("h2").replaceWith("<h3>바뀐 제목</h3>");
 
+// wrap 관련 메소드
+$("strong").unwrap(); // 부모 태그 삭제
+
+$(".ct1").wrap("<div>") //부모 태그 만들어줌
+$(".ct2").wrapAll("<div>");
+
+$("li").wrapInner("<h3>"); // 태그 안의 값에 태그를 만들어줌
+</pre>
 <a href = "#top"><button>위로 가기</button></a>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지의 삭제와 대체</title>
+    <style>
+        .container{width: 600px; margin: 0 auto;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>웹브라우저</h3>
+        <div id="d1">
+            <img src="images/wb1.PNG" alt="">
+            <img src="images/wb2.PNG" alt="" id="netscape">
+            <img src="images/wb3.PNG" alt="">
+            <img src="images/wb4.PNG" alt="" id="safari">
+            <img src="images/wb5.PNG" alt="">
+            <img src="images/wb6.PNG" alt="">
+        </div>
+        <hr>
+        <button id="btn1">넷스케이프 삭제</button>&nbsp;&nbsp;
+        <button id="btn2">사파리 대체</button>
+    </div>
+    <script>
+        var btn = document.getElementsByTagName("button");
+        var d1 = document.getElementById("d1");
+
+        for(var i = 0; i < btn.length;i++){
+            btn[i].addEventListener("click",function(){
+                if(this.id == 'btn1'){d1.children[1].setAttribute("src","")}
+                else if(this.id == 'btn2'){d1.children[1].setAttribute("src","images/wb4.PNG")}
+            })
+        }
+    </script>
+</body>
+</html>

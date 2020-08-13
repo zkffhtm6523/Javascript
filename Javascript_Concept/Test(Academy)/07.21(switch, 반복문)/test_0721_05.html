@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0721 5번</title>
+    <!-- 1. 입력창으로부터 정수를 입력받아서 입력받은 수의 팩토리얼을 출력
+    입력 : 정수 입력 -> 5
+    출력 : 5! = 5*4*3*2*1 = 120; 브라우저로 출력 -->
+</head>
+<body>
+    <script>
+        var max = parseInt(prompt('정수 입력'));
+        var temp = parseInt(1);
+        //방법 1
+        // document.write(max+'! = '+max);
+        // for(var i = max ; i > 0 ; i--){
+        //     temp *= i;
+        //     if(i-1){
+        //         document.write('*'+(i-1));
+        //     }
+        // }
+        // document.write('='+temp);
+        //방법 2
+        document.write(max+'!(')
+        for(var i = max ; i > 0 ; i--){
+            temp *= i;
+            if(i > 1){
+                document.write(i+'*');
+            }else if(i == 1){
+                document.write(i+')='+temp);
+            }
+        }
+    </script>
+</body>
+</html>

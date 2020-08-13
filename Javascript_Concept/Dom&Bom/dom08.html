@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>특정 노드의 직전 형제 노드 추가</title>
+    <style>
+        .container{width: 500px; margin: 0 auto;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        추천 여행지 : <input type="text"id="t1">
+        <button id="btn1">국내</button>&nbsp;&nbsp;
+        <button id="btn2">국외</button>
+        <div id="d1">
+            <div>1. 국내 여행지</div>
+            <div id="d2">2. 해외 여행지</div>
+        </div>
+    </div>    
+    <script>
+        
+        var t1 = document.getElementById("t1");
+        var d1 = document.getElementById("d1");
+        var btn = document.getElementsByTagName("button");
+
+        for(var i=0; i<btn.length; i++){
+            btn[i].addEventListener("click", function(){
+                var div = document.createElement("div");
+                var txtNode = document.createTextNode(t1.value);
+                console.log(this)
+                if(this.id == 'btn1'){ d1.children[0].appendChild(div); }
+                else if(this.id == 'btn2'){ d1.children[1].appendChild(div); }            
+                //생성된 div태그에 txtNode 글을 밀어넣음
+                div.appendChild(txtNode);
+                //input 태그의 기본값 공백
+                t1.value = "";
+                //input 태그에 포커스
+                t1.focus();
+            })
+        }  
+        // 1번 방법 : 학원
+        // var t1 = document.getElementById("t1");
+        // var d1 = document.getElementById("d1");
+        // var d2 = document.getElementById("d2");
+
+        // var btn1 = document.getElementById("btn1");
+        // var btn2 = document.getElementById("btn2");
+
+        // btn1.addEventListener("click", addLocal);
+        // btn2.addEventListener("click",addGlobal);
+        
+        // function addLocal(){
+        //     var newTag = document.createElement("div");
+        //     var txtNode = document.createTextNode(t1.value)//태그 안의 글이 생성
+        //     newTag.appendChild(txtNode); //div안에 글들은 child로 되고 글을 넣어주는 행위
+            
+        //     //d1 : 부모 자식 : newTag, d2
+        //     d1.insertBefore(newTag,d2);  //newTag를 넣는데 d2이전에 넣어라. d1과 d2 사이에 넣음
+        //     t1.value = "";
+        //     t1.focus();
+        // }
+
+        // function addGlobal(){
+        //     var newTag = document.createElement("div");
+        //     var txtNode = document.createTextNode(t1.value);
+        //     newTag.append(txtNode);
+
+        //     // d1 : 부모, 자식 : newTag
+        //     d1.appendChild(newTag); //d1안에 newTag를 삽입
+
+        //     t1.value = "";
+        //     t1.focus();
+        // }
+        // 2번 방법 : 다영이
+    </script>
+</body>
+</html>

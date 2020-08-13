@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 호출 방법</title>
+    <style>
+        .container{width: 500px; margin: 0 auto;}
+        button{margin-bottom: 20px;}
+    </style>
+    <!-- 
+    1. button 태그의 onclick 속성에서 함수를 호출
+    2. button 태그의 아이디를 통해 onclick속성으로 함수를 연결
+    3. addEventListener에 함수를 부여(함수 호출) 
+    4. addEventListener에 함수를 부여(익명함수 생성)
+     -->
+</head>
+<body>
+    <div class="container">
+        <h3>여러가지 함수 호출 방법</h3>
+        <!-- 
+        - 1번 방법
+        <button onclick="addMsg()">함수 호출</button> -->
+        <button id="btn1">함수 호출</button>
+        <div id="msg"></div>
+    </div>
+    <script>
+        var msg = document.getElementById("msg");
+        var btn1 = document.getElementById("btn1");
+        // 2번 방법
+        // btn1.onclick = addMsg;
+        // document.getElementById("btn1").onclick = addMsg;
+
+        // 3번 방법
+        // btn1.addEventListener("click",addmsg());
+        // function addMsg(){
+        //     msg.innerHTML = "다양한 함수 호출 방법을 배우고 있습니다.";
+        // }
+
+        // 4번 방법
+        btn1.addEventListener("click",function(){
+            msg.innerHTML = "다양한 함수 호출 방법을 배우고 있습니다."
+        })
+    </script>
+</body>
+</html>

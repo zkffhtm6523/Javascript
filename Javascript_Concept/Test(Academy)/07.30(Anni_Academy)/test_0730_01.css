@@ -1,0 +1,17 @@
+.container{width: 440px; margin: 20px auto; border: 1px solid black;}
+.day1{text-align: center; padding-top: 20px; padding: 20px; background-color: cornflowerblue;}
+.day1 h3{font-size: 1.2em; color: beige;}
+.day1 p{font-weight: bold; color: #222;}
+.day1 .accent{font-style: italic; font-size: 1.1em; color: blueviolet;}
+.bar{background-color: #747474; color: #fff; font-size: 1.2em; padding-left: 40px;
+ margin: -20px auto; height: 40px; line-height: 40px; padding-bottom: 1px;}
+.input_day{text-align: center;}
+.input_day ul{list-style: none; margin-right: 40px; margin-top: 30px;}
+.input_day button{width: 80px; background-color: black; color: white; border: none; height: 30px;}
+.day2{margin: 20px auto; background-color: beige; padding: 0;}
+.day2 ul{list-style: none; height: 60px; border-bottom: 1px dashed;}
+.day2 .item_title{float: left; width: 160px; font-size: 1.5em; font-weight: bold; line-height: 40px;}
+.day2 .item_date{color: #222; font-size: 1.2em; text-align: right; margin-right:20px;
+line-height: 40px; font-weight: bold;}
+.day2 ul:last-child{border: none; margin-bottom: -20px;}
+.day2 ul:first-child{padding-top: 12px;}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0720 1번</title>
+    <!-- 
+        1. 입력창으로부터 정수를 입력받아 홀수, 짝수 여부를 판별하는 프로그램
+        메세지 : 정수를 입력해주세요
+        ex) 
+        5는 홀수입니다. 10은 짝수입니다.
+        브라우저에 출력
+     -->
+</head>
+<body>
+    <script>
+        var input = parseInt(prompt('정수를 입력해주세요'));
+        if(input % 2 == 0){
+            document.write(input+'은 짝수입니다.');
+        }else if(input % 2 == 1){
+            document.write(input+'은 홀수입니다.');
+        }else{
+            document.write('정수를 입력해주세요');
+        }
+    </script>
+</body>
+</html>

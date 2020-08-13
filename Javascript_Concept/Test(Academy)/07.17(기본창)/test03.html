@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- 1. 확인창으로부터 메세지를 전달받아 전등의 점등/소등 여부를 변수에 저장
+    2. 그 값으로부터 전등의 점등/소등 여부를 브라우저 화면에 메세지와 함께 이미지를 출력 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테스트 3번</title>
+    <style>
+        img{width: 250px;}
+    </style>
+    <!-- 입력창 : prompt() - 값을 입력받는 함수
+    경고창,알림창 : alert() - 경고, 알림, 결과를 보여주는 함수
+    확인창 : confirm() - 확인버튼, 취소 버튼을 클릭하는 함수,
+     - boolean 타입 리턴
+    document.write() - 브라우저 화면으로 결과를 출력, 다양한 형식의 태그 , 클래스, 아이디,
+    속성을 모두 사용 -->
+</head>
+<body>
+
+</body>
+    <script>
+        var power = confirm("Power on?");
+        if(power == true){
+            document.write('<h3>전등을 점등하였습니다,</h3>')
+            document.write('<img src = "images/lighton.png">')
+        } else{
+            document.write('<h3>전등을 소등하였습니다,</h3>')
+            document.write('<img src = "images/lightoff.png">')
+        }
+    </script>
+    
+</html>

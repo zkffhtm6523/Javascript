@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .container {
+                width: 1200px;
+                margin: 30px auto;
+            }
+            .stone {
+                display: inline-block;
+                text-align: center;
+                margin: 5px;
+                width: 250px;
+                height: 150px;
+                background-color: pink;
+                padding: 20px;
+            }
+            h1 {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <!--
+        1. 12개의 탄생석 이미지를 4행3열의 테이블에 출력하시오.
+        - 이미지 밑에 월/탄생석/상징을 나타내는 문자열을 출력하시오.
+        2. table 사용하지 않고 div로 묶어 출력하시오.
+    -->
+    <body>
+        <div class="container">
+        <h1> 월별 탄생석과 상징</h1>
+        <script>
+            var stones = [
+                 "1월 / 가넷 / 사랑,진실",
+                "2월 / 자수정 / 평화,성실",
+                "3월 / 아쿠아마린 / 총명,용감",
+                "4월 / 다이아몬드 / 영원한사랑",
+                "5월 / 에메랄드 / 행복,행운",
+                "6월 / 진주 / 건강,부귀",
+                "7월 / 루비 / 영원한생명,열정,용기",
+                "8월 / 감람석 / 지혜,부부의행복",
+                "9월 / 사파이어 / 지혜,불변",
+                "10월 / 오팔 / 희망,순결",
+                "11월 / 토파즈 / 우정,인내",
+                "12월 / 터키석 / 성공,승리"
+                ];
+            // var cnt = 1;
+            // document.write('<table>');
+            // for(var i=1; i<=3; i++) {
+            //     document.write('<tr>');
+            //     for(var z=1; z<=4; z++) {
+            //         document.write('<td>' + '<img src="../images_month_stone/stone0' + cnt + '.png">');
+            //         document.write('<br>' + cnt + '월');
+            //         document.write('</td>');
+            //         cnt++;
+            //     }
+            //     document.write('</tr>');
+            // }
+            // document.write('</table>');
+            
+            // 1번 방법 - table 활용, 배열 활용
+            var cnt = 1;
+
+            for(var i=1; i<=3; i++) {
+            
+                for(var z=1; z<=4; z++) {
+                    document.write('<div class="stone"><img src="images/07.21/stone'+cnt+'.png">');
+                    document.write('<br>' + stones[cnt-1]);
+                    document.write('</div>');
+                    cnt++;
+                }
+
+            }
+        </script>
+        </div>
+    </body>
+</html>

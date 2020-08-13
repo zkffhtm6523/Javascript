@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1. 입력창으로부터 정수를 입력받아서 정수의 약수를 출력하고
+    입력 : 정수 입력 -> 10
+    출력 : 
+    약수 : 1 2 5 10
+    약수의 갯수 : 4개
+    약수의 합 : 18 -->
+</head>
+<body>
+    <script>
+        var num = parseInt(prompt('정수 입력'));
+        var cnt = 0;
+        var total = 0;
+        document.write('약수 : ')
+        for(var i = 1 ; i <= num ; i++){
+            if(num % i == 0){
+                document.write(i+" ");
+                cnt++;
+                total += i;
+            }
+        }
+        document.write('<br>약수의 갯수 : '+cnt+'개<br>');
+        document.write('약수의 합 : '+total)
+    </script>
+</body>
+</html>

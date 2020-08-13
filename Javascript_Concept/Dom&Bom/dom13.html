@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션 효과(노드의 이동)</title>
+    <style>
+        .container{width: 600px; margin: 0 auto;}
+        img{height: 120px;}
+    </style>
+    <!-- 
+    DOM 객체의 반환 메소드
+    1. getElementId() : 지정된 id 속성값을 가진 요소의 첫번째 요소객체를 반환
+    2. getElementsByName() : 지정된 name 속성 값을 가진 요소객체들을 반환.
+    3. getElementsByClassName() : 지정된 class 속성 값을 가진 요소객체들을 반환.
+    4. getElementsByTagName() : 지정된 tag명을 가진 요소객체들을 반환.
+
+    5. querySelector() : 지정된 css 선택자를 만족하는 첫 번째 요소객체를 반환
+    6. querySelectorAll() : 지정된 css 선택자를 만족하는 모든 요소객체들을 반환.
+
+    1개 : getElementId(), querySelector()
+    1개 이상 : querySelectorAll(), getElementsByTagName(), getElementsByClassName(), getElementsByName()
+             : 반복문과 함께 사용
+     -->
+</head>
+<body>
+    <div class="container">
+        <h3>이미지 이동하는 애니메이션 효과</h3>
+        <div id="images">
+            <img src="images/dom13/f1.png" alt="">
+            <img src="images/dom13/f2.png" alt="">
+            <img src="images/dom13/f3.png" alt="">
+            <img src="images/dom13/f4.png" alt="">
+            <img src="images/dom13/f5.png" alt="">
+            <img src="images/dom13/f6.png" alt="">
+            <img src="images/dom13/f7.png" alt="">
+        </div>
+        <button onclick="setInterval(moveImages,1000)">애니메이션 적용</button>
+        <button onclick="clearInterval(moveImages)">애니메이션 정지</button>
+    </div>
+    <script>
+        var images = document.querySelector('#images');
+        //img만 적으면 img태그라는 뜻
+        
+        function moveImages(){
+            var imgTags = document.querySelectorAll("img")
+            var movingImg = imgTags[0];
+
+            images.removeChild(movingImg)
+            images.appendChild(movingImg)
+        }
+
+        
+    </script>
+</body>
+</html>

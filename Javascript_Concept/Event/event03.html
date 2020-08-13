@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{width: 600px; margin: 0 auto;}
+    </style>
+        <!--젠코딩 찾아보기 -->
+        <!--
+            1.load/unload 이벤트
+            - 웹문서나 이미지 파일을 웹브라우저로 로드하게 되면, 파일.이미지 용량에 로딩되는 시간이 필요한
+            load 이벤트는 이 파리의 로드가 끝나면 발생함
+            - 링크 등을 클릭해서 다른 문서로 이동하게 되면 웹브라우저는 현재 로드된
+        -->
+</head>
+<body>
+    <div class="container">
+        <h2>load/unload 이벤트</h2>
+        <img src="images/image1.JPG" id="img1" width="200" onclick="f1()">
+        <p id="msg"></p>
+        <img src="" id="img2">
+    </div>
+    <script>
+        function f1(){
+            var msg = document.getElementById("msg");
+            var img2 = document.getElementById("img2");
+            img2.src = "images/image1.jpg"
+            img2.width = "300"
+            img2.height = "300"
+            img2.onload = function(){
+                msg.innerHTML = "이미지 크기 : "+img2.width + "X"+img2.height;
+            }
+        }
+    </script>
+</body>
+</html>

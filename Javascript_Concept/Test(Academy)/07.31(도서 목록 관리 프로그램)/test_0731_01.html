@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>밀리</title>
+    <style>
+        body{background-image: url('book.jpg'); background-size: cover;}
+        .container{width: 500px; margin: 30px auto; margin-top: 180px;}
+        .title{border: 3px solid chocolate; text-align: center; color: black;
+                background-color: gray;}
+        .submit{background-color: black; color: lightgray; width: 200px; height: 50px; font-size: 1.7em;}
+        .book{text-align: center; border: 3px solid chocolate; margin-top: 15px; padding: 10px; color: white; font-weight: bold;
+            font-size: 1.2em; background-color: darkolivegreen;}
+        #confirm{background-color: black; margin-left: 20px; margin-right: 10px; font-size: 1.2em; font-weight: bold;
+                color: lightgray;}
+        #delete{background-color: black; margin-left: 20px; margin-right: 20px; font-size: 1.2em; font-weight: bold;
+                color: lightgray;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>밀리의 서재에서 읽은 책</h1>
+        </div>
+        <div class="book" id="book1">
+            <button class="submit">등록</button>
+        </div>
+        <div class="book" id="book2">
+            <button class="submit">등록</button>
+        </div>
+        <div class="book" id="book3">
+            <button class="submit">등록</button>
+        </div>
+        <div class="book" id="book4">
+            <button class="submit">등록</button>
+        </div>
+        &nbsp;
+    </div>
+    <script>
+        var btn1 = document.getElementsByTagName('button')[0];
+        var check1 = true;
+        btn1.onclick = function(){
+            check1 = false
+            if(check1 == false){
+                function Book(title ,author, volume, price){
+                    //Property
+                    this.title = title;
+                    this.author = author;
+                    this.volume = volume;
+                    this.price = price;
+                }
+                //남이 만든 함수에 추가할 때
+                Book.prototype.getTitle = function(){
+                    return this.title;
+                }
+                Book.prototype.showInfo = function(){
+                    return alert('타이틀 : '+book.title+'\n저자 : '+book.author+'\n페이지 : '+book.volume+'\n가격 : '+book.price);
+                }
+                var title = prompt('타이틀을 입력해주세요.');
+                var author = prompt('저자를 입력해주세요.');
+                var volume = prompt('페이지를 입력해주세요.');
+                var price = prompt('가격을 입력해주세요.');
+                var book = new Book(title,author,volume,price);
+                
+                document.querySelector('#book1').innerHTML = book.getTitle()+"<button id='confirm'>확인</button><button id='delete'>삭제</button>";
+                var btn1_con = document.querySelector('#confirm');
+                var btn1_del = document.querySelector('#delete');
+                
+                btn1_con.onclick = function(){
+                    book.showInfo();
+                }
+                
+                btn1_del.onclick = function(){
+                        check1 = confirm('삭제하시겠습니까?');
+                        if(check1 == true){
+                            document.querySelector('#book1').innerHTML = "<button class='submit'>등록</button>";
+                            location.reload();
+                        }
+                    }
+            }
+        }
+      
+    </script>
+</body>
+</html>

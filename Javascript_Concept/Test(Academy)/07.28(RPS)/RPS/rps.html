@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보</title>
+    <style>
+        .container{width: 600px; margin: 0 auto; text-align: center;}
+        table, th, td{border: 1px solid black; border-collapse: collapse;}
+        button{width: 50%; background-color: pink; font-weight: bold; height: 100px; margin-top: 50px;}
+        button:hover{background-color: plum;}
+        table{text-align: center;}
+        .container{width: 600px; margin: 0 auto;}
+        table, th, td{border: 1px solid black; border-collapse: collapse;}
+        button{width: 100%; background-color: pink; font-weight: bold;}
+        button:hover{background-color: plum;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>가위바위보</h1>
+        <button onclick="go()">시작</button>
+        <table style="border: 1px solid black;"></table>
+        <div style="width: 500px; margin: 0 auto;"></div>
+        <script>
+            var rps = ['가위','바위','보'];
+            var cnt = 0;
+            var victory = 0;
+            var tie = 0;
+            var defeat = 0;
+            
+            function go(){
+                document.body.innerHTML = "";
+                document.write("<div style='width : 600px; margin : 0 auto;'>");
+                document.write("<table style='border: 1px solid black;border-collapse : collapse'><caption><h1>가위바위보</h1></caption>");
+                var user = prompt('가위,바위,보');
+                var com = rps[parseInt(Math.random()*3)];
+                document.write("<tr style='text-align:center;'><td style='border: 1px solid black; background-color : lightgray;'>User</td><td style='border: 1px solid black; background-color : lightgray;'>Com</td></tr>");
+                document.write("<tr>");
+                if(user == '가위'){
+                    document.write("<td style='border: 1px solid black;'><img src='images/scissors.png'></td>");
+                    if(com == '보'){
+                        document.write("<td style='border: 1px solid black;'><img src='images/paper.png'></td>");
+                        victory++;
+                    }else if(com == '가위'){
+                        document.write("<td style='border: 1px solid black;'><img src='images/scissors.png'></td>");
+                        tie++;
+                    }else if(com == '바위'){
+                        document.write("<td style='border: 1px solid black;'><img src='images/rock.png'></td>");
+                        defeat++;
+                    }
+                }else if(user == '바위'){
+                    document.write("<td style='border: 1px solid black;'><img src='images/rock.png'></td>");
+                    if(com == '보'){
+                        document.write("<td style='border: 1px solid black;'><img src='images/paper.png'></td>");
+                        defeat++;
+                    }else if(com == '가위'){
+                        document.write("<td style='border: 1px solid black;'><img src='images/scissors.png'></td>");
+                        victory++;
+                    }else if(com == '바위'){
+                        document.write("<td style='border: 1px solid black;'><img src='images/rock.png'></td>");
+                        tie++;
+                    }
+                }else if(user == '보'){
+                    document.write("<td style='border: 1px solid black;'><img src='images/paper.png'></td>");
+                    if(com == '보'){
+                        document.write("<td style='border: 1px solid black;'><img src='images/paper.png'></td>");
+                        tie++;
+                    }else if(com == '가위'){
+                        document.write("<td style='border: 1px solid black;'><img src='images/scissors.png'></td>");
+                        defeat++;
+                    }else if(com == '바위'){
+                        document.write("<td style='border: 1px solid black;'><img src='images/rock.png'></td>");
+                        victory++;
+                    }
+                }else{
+                    alert('잘못 입력하셨습니다')
+                    }
+                cnt++;
+                document.write('</tr>');
+                document.write("<tr style='text-align: center;'><td style='border: 1px solid black;' colspan = '2'><button onclick='go()'style='width: 100%;background-color:pink;'><h3>시작</h3></button></td></tr>");
+                document.write("<tr style='text-align: center;'><td style='border: 1px solid black;' colspan = '2'>총 : "+cnt+" / 승 : "+victory+" / 무 : "+tie+" / 패 : "+defeat+"</td></tr>");
+                document.write('</table>');
+                document.write("</div>");
+        }
+            
+        </script>
+</div>
+</body>
+</html>

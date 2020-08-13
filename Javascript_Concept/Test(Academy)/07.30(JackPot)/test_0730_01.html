@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>잭팟 게임</title>
+    <!--
+        베팅 금액 10000원 플레이
+        3개의 숫자가 같으면 10배
+        1. 배팅 금액을 입력하지 않으면 경고를 알려준다.
+        2. 주사위는 각각 난수를 만들어 버튼을 누를 때, 이미지와 함께 나타내도록 한다.
+        3. 같은 숫자에 따라 3개면 10배, 2개면 2배의 상금을 주도록 한다.
+        4. 베팅 결과를 주사위 이미지 아래에 출력한다.
+        5. 돈은 천단위 구분기호를 출력하도록 한다.
+        6. 베팅금액의 입력 상자는 reset되도록 한다.
+    -->
+    <style>
+        .container{width: 650px; margin: 30px; border: 1px solid black; padding: 5px;}
+        img{width: 150px;}
+        .container h1,.container .info{text-align: center;}
+        .input{width: 650px; border: 1px solid black; text-align: center; margin-top: 3px;}
+        .result{text-align: center; border: 1px solid black; border-collapse: collapse; margin-top: 2px;
+                width: 650px;}
+        .head{border: 1px solid black;}
+        #getMoney{text-align: center; border: 1px solid black; width: 650px; height: 100px; margin-top: 2px;}
+        #getTotalMoney{text-align: center; border: 1px solid black; width: 650px; height: 100px; margin-top: 2px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <h1>잭팟 게임</h1>
+            <div class="info">
+                <p>주사위를 던져주세요.</p>
+                <p>같은 숫자 3개만 베팅 금액의 10배, 숫자 2개가 일치하면 배팅금액의 2배</p>
+                <p>배팅금액을 입력하고, 플레이 버튼을 누르면 게임을 시작합니다.</p>
+            </div>
+        </div>
+            <div class="input">
+                <label for="money">금액 입력</label>
+                <input type="text" id="money" value="">
+                <button>Play</button>
+            </div>
+        <div class="result">
+            <img src="../images/07.30/dice_info.png" id="img0" alt="">
+            <img src="../images/07.30/dice_info.png" id="img1" alt="">
+            <img src="../images/07.30/dice_info.png" id="img2" alt="">
+        </div>
+        <div id="getTotalMoney">
+            <h3>총획득 금액</h3>
+            <h4>￦ 0 원</h4>
+        </div>
+        <div id="getMoney">
+            <h3>획득 금액</h3>
+            <h4>￦ 0 원</h4>
+        </div>
+    </div>
+</body>
+<script>
+    var btn = document.getElementsByTagName('button')[0];
+    var totalMoney = 0
+    btn.onclick = function(){
+        var money = document.querySelector('#money').value;
+        var jackPot = 0;
+        if(money > 0){
+            //2차원 배열의 주사위 랜덤값 추출(인덱스)
+            var arr = new Array(3);
+            for(var i = 0;i<=2;i++){
+                var rn = parseInt(Math.random()*6);
+                arr[i] = rn;
+                console.log("arr["+i+"] : "+arr[i]+"타입"+typeof(arr[i]));
+                document.querySelector('#img'+i).setAttribute('src','../images/07.30/dice_'+rn+'.png');
+            }
+
+            if( arr[0] == arr[1] && arr[0] == arr[2] ){
+                jackPot =  money*10;
+                totalMoney += jackPot;                
+                document.querySelector('#getMoney').innerHTML = "<h3>획득 금액</h3><h4>￦"+jackPot.toLocaleString()+" 원</h4>";
+            }else if( arr[0] == arr[1] || arr[0] == arr[2] || arr[1] == arr[2] ){
+            
+                jackPot = money*2;
+                totalMoney += jackPot;
+                document.querySelector('#getMoney').innerHTML = "<h3>획득 금액</h3><h4>￦"+jackPot.toLocaleString()+" 원</h4>";
+            
+            }else{
+                jackPot = 0;
+                document.querySelector('#getMoney').innerHTML = "<h3>획득 금액</h3><h4>￦"+ jackPot.toLocaleString()+" 원</h4>";
+            }
+            //버튼 리셋
+            document.querySelector('#money').value = 10000;
+            // document.querySelector('#money').focus();
+            document.querySelector('#getTotalMoney').innerHTML = "<h3>총획득 금액</h3><h4>￦"+ totalMoney.toLocaleString()+" 원</h4>";
+        }else{
+            alert('경고');
+        }
+        
+    }
+</script>
+</html>

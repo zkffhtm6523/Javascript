@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도서 목록 관리 프로그램</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .container {
+            width: 600px;
+            margin: 30px auto;
+        }
+        .container h2 {
+            text-align: center;
+        }
+        .container form {
+            background-color: yellowgreen;
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+        form input{
+            border: none;
+            width: 110px;
+            padding: 10px;
+            font-size: 1.2em;
+        }
+        form .addBtn {
+            background-color: white;
+            border-radius: 100%;
+            color: #555;
+            border: none;
+            width: 60px;
+            padding: 10px;
+            font-size: 1em;
+            font-weight: bold;
+            box-shadow: black 2px 2px 4px; 
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            }
+        ul li {
+            background-color: #eee;
+            font-size: 1.2em;
+            padding: 10px 10px 10px 40px;
+            position: relative;
+        }
+        ul li:nth-child(odd) {
+            background-color: #ddd;
+        } 
+        ul li:hover {
+            background-color: lemonchiffon;
+            color: brown;
+        }
+        .close {
+            background-color: pink;
+            padding: 3px 12px 6px 12px;
+            font-size: 1.4em;
+            color: red;
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor: pointer;
+        }
+        .bookInfo {
+            background-color: orange;
+            padding: 3px 12px 6px 12px;
+            font-size: 1.4em;
+            color: gray;
+            position: absolute;
+            right: 34px;
+            top: 0;
+            cursor: pointer;
+        }
+    </style>
+    <!-- 
+        1. 이벤트 - 웹브라우저에서 HTML 문서와 사용자 사이에 상호작용에 의해서 발생하는 일
+        이벤트가 발생하면 웹브라우저는 이 사실을 자바스크립트에게 알려주어서 
+        이벤트에 대한 적절한 처리를 할 수 있게 한다
+        - 마우스 : click, dbclick(더블클릭), mouseover, mouseout, mousemove, mousedown, mouseup
+        - 키보드 : keypress, keyup, keydown
+        - 폼 : change, focus, blur, select
+        - 윈도우 : load, unload, resize 
+        2. 이벤트리스너 - 이벤트가 발생했을 때 실행되는 함수
+        
+        3. form 태그 : 기본적으로 form안의 내용을 가지고 페이지로 이동하려는 기본 특성을 가짐
+        이러한 폼의 기본 특성을 막고, 사용자가 의도한 대로 사용하려면, event.preventDefault()를 사용하여
+        기본 특성을 막는다.
+     -->
+</head>
+<body>
+    <div class="container">
+        <h2>도서 목록 관리 프로그램</h2>
+        <form>
+            <input type="text" id="title" autofocus placeholder="책제목">
+            <input type="text" id="author" placeholder="저자">
+            <input type="text" id="volume" placeholder="쪽수">
+            <input type="text" id="price" placeholder="가격">
+            <button id="add" class="addBtn">추가</button>
+        </form>
+        <div id="itemList"></div>
+    </div>
+    <script>
+        // 객체 생성자 함수
+        function Book(title, author, volume, price) {
+            this.title = title;
+            this.author = author;
+            this.volume = volume;
+            this.price = price;
+        }
+
+        Book.prototype.showInfo = function() {
+            return "제목 : " + this.title + "\n저자 : " + this.author + "\n페이지 : " + this.volume + "\n가격 : " + this.price;
+        }
+
+        // var itemList = [
+        //     new Book("레미제라블", "빅토르위고", 950, 23000),
+        //     new Book("죄와벌", "도스토예프스키", 1025, 21000),
+        //     new Book("전쟁과 평화", "톨스토이", 875, 18500),
+        //     new Book("오만과 편견", "제인 오스틴", 770, 15000),
+        //     new Book("폭풍의 언덕", "에밀리 브론테", 820, 15500),
+        // ]
+        var itemList = []; // 책 정보를 받기 위한 빈 배열
+
+
+       var addBtn = document.querySelector("#add");
+       addBtn.addEventListener("click", addList); 
+        
+        // 이벤트 함수
+        function addList() {
+            var title = document.querySelector("#title").value;
+            var author = document.querySelector("#author").value;
+            var volume = document.querySelector("#volume").value;
+            var price = document.querySelector("#price").value;
+
+            if(title == 0||author == 0||price == 0||volume == 0){
+                alert('입력해주세요');
+            }else{
+                itemList.push(new Book(title, author, volume, price));
+                document.querySelector("#title").value = " ";
+                document.querySelector("#author").value = " ";
+                document.querySelector("#volume").value = " ";
+                document.querySelector("#price").value = " ";
+                document.querySelector("#title").focus();
+                // event.preventDefault();
+                showList();
+            }
+
+        }
+
+        function showList() {
+            event.preventDefault();
+            // itemList 배열의 내용을 li로 나열
+            var list = "<ul>";
+            for(var i = 0; i < itemList.length; i++) {
+                list += "<li>" + itemList[i].title + "<span class='bookInfo' id="+ i +">책정보</span>" +"<span class='close' id="+ i +">x</span>" + "</li>"
+            }
+
+            list += "</ul>";
+
+            document.querySelector("#itemList").innerHTML = list;
+
+            // item에 대한 배열
+            var bookList = document.querySelectorAll(".bookInfo"); // 클래스가 close인 얘들이 배열에 하나씩 저장됨
+
+            for(var i = 0; i < bookList.length; i++) {
+                bookList[i].addEventListener("click", showBookInfo);
+            }
+
+            var bookList = document.querySelectorAll(".close"); // 클래스가 close인 얘들이 배열에 하나씩 저장됨
+
+            for(var i = 0; i < bookList.length; i++) {
+                bookList[i].addEventListener("click", removeItem);
+            }
+        }
+
+        function removeItem() {
+            var id = this.getAttribute("id"); // id속성을 저장
+            itemList.splice(id, 1); // 선택된 id 1개를 삭제
+            showList(); // 지워진 배열을 다시 보여주기 위해
+        }
+
+        function showBookInfo() {
+            var id = this.getAttribute("id");
+            alert(itemList[id].showInfo());
+        }
+    </script>
+</body>
+</html>

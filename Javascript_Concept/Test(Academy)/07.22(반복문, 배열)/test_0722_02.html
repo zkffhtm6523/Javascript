@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중첩 for문</title>
+    <!-- 1. table을 활용하여 1~10까지의 제곱, 세제곱, 네제곱을 출력하는 프로그램 -->
+    <style>
+        body{width: 200px; margin: 0 auto;}
+        table, th, td{border: 1px solid black;border-collapse: collapse;}
+        th, td{padding: 20px;}
+        .th1{background: linear-gradient(to top,pink,white);}
+        .col1{background: linear-gradient(to top,pink,white);}
+    </style>
+</head>
+<body>
+    <div>
+        <table>
+            <colgroup>
+            <col class="col1">
+            </colgroup>
+            <tr class="th1">
+                <th>n</th>
+                <th>n<sup>2</sup></th>
+                <th>n<sup>3</sup></th>
+                <th>n<sup>4</sup></th>
+            </tr>
+            <script>
+                var cnt = 1;
+                for (var i = 1; i <= 10; i++) {
+                    document.write('<tr>')
+                    for (var j = 1; j <= 4; j++) {
+                        cnt *= i; 
+                        // 밖의 i와 cnt를 곱해줌
+                        document.write('<th>'+cnt+'</th>');
+                    }
+                    cnt = 1;
+                    document.write('</tr>')
+                }
+            </script>
+        </table>
+    </div>
+</body>
+</html>

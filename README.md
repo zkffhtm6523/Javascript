@@ -99,5 +99,10 @@ $(".txt").prev().css(style_1); // 내용1, 이전
 //다음 태그 선택
 $(".txt").next().css(style_2); // 내용3, 다음
 $(".txt + p").css(style_2);     // 내용3, 다음
+
+//부모 선택
+$(".txt1").parents().css("border", "2px dashed #00f"); // 모든 부모
+$(".txt1").parents("div").css("border", "2px dashed #00f"); // 특정 부모
+$(".txt1").closest("div").css("border", "2px dashed red"); // 가장 가까운 상위 요소
 </pre>
 

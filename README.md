@@ -328,10 +328,10 @@ $("#user_id").val("jquery") //userID의 value 받아오기
 var result_1 = $("#chk1").prop("checked");
 
 // prepend() : 선택 태그 안의 맨 앞에 추가
-$("#listZone").prepend("<li></li>");
+$("list").prepend("<div></div>");
 
 // append() : 선택 태그 안의 맨 뒤에 추가
-$("#listZone").append("<li></li>");
+$("list").append("<div></div>");
 
 // after() : 뒤에 붙임
 $("#wrap p:eq(2)").after("<p></p>").css("color", "red");

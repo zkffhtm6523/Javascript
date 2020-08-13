@@ -17,12 +17,11 @@
 $("p").css("backgroundColor", "yellow").css("width", "150").css("height", "30");
 
 2. css 함수안에서 속성과 값을 나열
-$("p").css({<br>
+$("p").css({
     backgroundColor:"pink",
     width:"150",
     height:"30",
-});
-</pre>
+});</pre>
 
 <h3>JQUERY 예제 1</h3>
 <pre>

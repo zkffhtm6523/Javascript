@@ -11,7 +11,9 @@
 - html() : html 태그를 포함하여 텍스트를 설정하는 함수 (js: innerHTML)
 - text() : html 태그를 무시하고 텍스트만 설정하는 함수 (js: innerTEXT)
 - css() : css 설정을 하는 함수
-- attr() : 속성을 설정하는 함수
+- attr() : 속성을 설정하는 함수(속성값이나 정보를 조회, 최초에만 설정됨)
+- prop() : element가 가지는 실제적인 상태(활성화 상태, 체크 상태 등)
+
 <br>
 3. 애니메이션 효과 함수
 - show(), hide(), toggle() ...<br>
@@ -212,4 +214,137 @@ var newObj2 = $.grep(obj, function(value, index) {
     }
 });
 
+// 기타 메소드
+var idxNum = $.inArray("부산", arr1); //inArray() - 데이터와 일치하는 인덱스를 반환
+var okArray1 = $.isArray(arr1); // isArray() - 데이터가 배열이면 true, 그렇지 않으면 false
+$.merge(arr2, arr1); // merge() arr2와 arr1을 합쳐서 arr2에 저장
+var idxNum2 = $("li").index($("#list3")) // index() - 지정 요소를 찾아 인덱스를 반환
+</pre>
+
+<h3>- JQUERY 예제(속성 선택/스타일) -</h3>
+<pre>
+//속성 선택
+$(document).ready(function() {
+   // 1. 모든 속성 선택
+   $("#wrap a[target]").css("color","#f00");
+
+   // 2. 속성 중에서 특정값으로 시작하는 요소만 선택
+   $("#wrap a[href^='https']").css("fontStyle", "italic");
+
+   // 3. 속성 중에서 특정값으로 끝나는 요소만 선택
+   $("#wrap a[href$='.net']").css("fontSize", "1.5em");
+
+   // 4. 속성 중에서 특정값을 포함하는 요소만 선택
+   $("#wrap a[href*='google'").css("fontWeight", "bold");
+
+   // 5. 요소 중에서 특정 속성을 포함하는 요소만 선택
+   $("#member_f :text").css("backgroundColor", "yellow");
+   $("#member_f :password").css("backgroundColor", "pink");
+});
+
+//스타일 주는 법
+$("#wrap p:hidden").css({"display":"block", "background":"#ff0",}); //:hidden
+
+var z1 = $("#zone1 :selected").val();
+$("#result1").text("옵션은 " + z1 + "을 선택하였습니다."); //:selected
+
+var z2 = $("#zone2 :checked").val();
+$("#result2").text("취미는 " + z2 + "를 선택하였습니다."); //:checked
+
+// 1. contains() -내용을 포함하는 요소 선택
+$("#inner_1 p:contains(내용1)").css("background", "#ff0");
+
+// 2. has() - 해당요소를 포함하는 요소 선택
+$("#inner_1 p:has(strong)").css("background", "#0ff");
+
+// 3. contents() - 선택요소의 하위요소를 선택
+$("#outer_wrap").contents().css("border", "1px dashed #00f");
+
+// 4. not() - 선택요소의에서 첫번째가 아닌것을 선택
+$("#inner_2 p").not(":first").css("background", "#0f0");
+
+// 5. end() - 선택되기 이전의 선택자로 적용이 됨.
+$("#inner_2 p").eq(2).css("background", "#f00"); // 2번 인덱스
+$("#inner_2 p").eq(2).end().css("background", "#f00"); 
+
+// 6. find() - 하위 요소 중에서 찾는 요소를 선택
+$("#inner_3").find(".txt1").css("background","pink");
+
+// 7. filter() - 선택한 요소 중에서 찾는 요소를 선택
+$("#inner_3 p").filter(".txt2").css("background", "lime");
+
+// 8. filter(function()) - 선택한 요소 중에서 조건에 맞는 요소만 선택
+$("#inner_4 p").filter(function(idx, obj) {
+    console.log(idx);
+    return idx%2 == 0; // 짝수번호
+}).css("background", "cyan");
+
+// width() : 내용의 너비
+var w1 = $("#p1").width();
+console.log("p1의 width: " + w1);
+
+// innerWidth() : 내용+패딩의 너비
+var w2 = $("#p1").innerWidth();
+console.log("p1의 innerWidth: " + w2);
+
+// outerWidth() : 내용+패딩+테두리의 너비
+var w3 = $("#p1").outerWidth();
+console.log("p1의 outerWidth: " + w3);
+
+$("#p2").width(200).height(25); // 설정(변경)
+</pre>
+
+<h3>- JQUERY 예제(메소드) -</h3>
+<pre>
+$(document).ready(function() {
+// html() - 태그를 읽고, 쓰는 메소드
+var result_1 = $("#sec_1").html(); // 읽어올때
+console.log(result_1);
+$("#sec_1 p").html("<a href='#'>Text1</a>") // 설정할때
+
+// text() - 내용을 읽고, 쓰는 메소드
+var result_2 = $("#sec_2").text() // 읽어올때
+console.log(result_2);
+$("#sec_2 h2").text("text()");    // 설정할때
+
+// attr() - 속성 
+var srcVal = $("#sec_1 img").attr("src"); // 속성 읽기
+$("#sec_1 img").attr({ // 속성 설정
+   "width":"200",
+   //"src":srcVal.replace("math_img_1.jpg","math_img_2.jpg"),
+   "src":"images/math_img_2.jpg",
+   "alt":"바위"
+}).removeAttr("border");
+
+$("#p1").addClass("aqua"); // 클래스 추가
+$("#p2").removeClass("red"); // 클래스 삭제
+$("#p3").toggleClass("green"); // 해당 클래스가 없으면 생성, 있으면 삭제
+$("#p4").toggleClass("green"); // 해당 클래스가 없으면 생성, 있으면 삭제
+
+// val() : value()와 같음
+$("#user_id").val("jquery") //userID의 value 받아오기
+
+// prop() : attr()과 유사함
+var result_1 = $("#chk1").prop("checked");
+
+// prepend() : 선택 태그 안의 맨 앞에 추가
+$("#listZone").prepend("<li>맨 앞에 추가</li>");
+
+// append() : 선택 태그 안의 맨 뒤에 추가
+$("#listZone").append("<li>맨 뒤에 추가</li>");
+
+// after() : 뒤에 붙임
+$("#wrap p:eq(2)").after("<p>내용3뒤에 추가</p>").css("color", "red");
+
+// before() : 앞에 붙임
+$("#wrap p:eq(1)").before("<p>내용2앞에 추가</p>").css("background", "yellow");
+
+// clone() : 복제
+var copyObj = $(".box1").children().clone(); 
+
+// remove() : 삭제
+$(".box2").remove();
+
+// empty() : 하위 태그 삭제
+$(".box3").empty();
 </pre>

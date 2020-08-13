@@ -1,4 +1,3 @@
-# Javascript & Jquery
 <h1>Jquery 사용법</h1>
 <h3>- JQUERY 주요 함수 -</h3>
 1. 이벤트 처리<br>

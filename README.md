@@ -147,4 +147,69 @@ $("li:only-child").css("border", "4px solid red"); //여러 li중에서 ul안에
 $("li").slice(3,5).css("background", "pink"); // 0번부터 시작, 3번부터 5번 앞까지 선택 (5번은 선택 안됨)
 </pre>
 
-<h3>- JQUERY 예제(선택자/스타일) -</h3>
+<h3>- JQUERY 예제(객체/배열) -</h3>
+<pre>
+// 1. 배열(문자열)
+var city = ['서울', '대구', '대전', '부산'];
+
+$(city).each(function(index, value) {
+  document.write(index + " : " + value + "<br>");
+});
+
+// 2. 객체
+var subject = { subject:"html", grade:1, score:85};
+$.each(subject, function(key, value){
+    document.write(key + " : " + value + "<br>");
+});
+
+// 3. 배열 - 객체의 배열
+var obj = [{"area":"서울"},{"area":"부산"},{"area":"전주"}];
+$(obj).each(function(index, value) {
+    console.log(index + " : ", value);
+})
+
+// 4. 태그
+$.each($("#menu2 li"), function(index, value) {
+   console.log(index + " : ", value);
+}); 
+
+// map 사용 - 배열을 통해서 반환된 객체를 저장
+var city = ['서울', '대구', '대전', '부산'];
+var newCity = $.map(city, function(value, index) {
+    if(index < 2) {
+        return value;
+    }
+});
+document.write(newCity + "<br>");
+
+// grep 사용 - 배열을 통해서 true로 반환된 객체를 저장
+var newCity2 = $.grep(city, function(value, index) {
+    if(index < 2) {
+        return true;
+    } else {
+        return false;
+    }
+});
+document.write(newCity2 + "<br>");
+
+// 객체 배열(map, grep)
+var obj = [
+    {"area":"서울", "name":"무대리"},
+    {"area":"부산", "name":"홍과장"},
+    {"area":"대전", "name":"박사장"},
+    {"area":"서울", "name":"빅마마"},
+];
+// 객체 배열 : map
+var newObj1 = $.map(obj, function(value, index) {
+    if(value.area == "서울") {
+        return value;
+    }
+});
+// 객체 배열 : grep
+var newObj2 = $.grep(obj, function(value, index) {
+    if(value.area == "서울") {
+        return true;
+    }
+});
+
+</pre>

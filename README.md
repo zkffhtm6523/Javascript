@@ -11,16 +11,18 @@
 3. 애니메이션 효과 함수<br>
 - show(), hide(), toggle() ...<br>
    <br>
-<h3>JQUERY 기법</h3> 
-1. css 함수 - 체이닝(chainning) 기법<br>
-$("p").css("backgroundColor", "yellow").css("width", "150").css("height", "30");<br>
-<br>
-2. css 함수안에서 속성과 값을 나열<br>
+<h3>JQUERY 기법</h3>
+<pre>
+1. css 함수 - 체이닝(chainning) 기법
+$("p").css("backgroundColor", "yellow").css("width", "150").css("height", "30");
+
+2. css 함수안에서 속성과 값을 나열
 $("p").css({<br>
-    backgroundColor:"pink",<br>
-    width:"150",<br>
-    height:"30",<br>
-});<br>
+    backgroundColor:"pink",
+    width:"150",
+    height:"30",
+});
+</pre>
 
 <h3>JQUERY 예제 1</h3>
 <pre>

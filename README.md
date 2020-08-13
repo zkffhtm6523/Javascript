@@ -21,3 +21,19 @@ $("p").css({<br>
     width:"150",<br>
     height:"30",<br>
 });<br>
+
+<h3>JQUERY 예제 1</h3>
+<pre>
+$(function() {
+   $("p").css("border", "4px solid red"); // 태그(요소)
+   $("#gnb").css("border", "4px solid orange"); // 아이디
+   $(".logo").css("border", "4px solid yellow"); // 클래스
+   //$("#gnb ul li").css("border", "4px solid green"); // 모든 자식 li
+   $("#gnb > ul > li").css("border", "4px solid green"); // ul의 바로 밑의 자식 li
+   $("#gnb ul").css("border", "4px solid blue"); // #gnb 안의 모든 ul
+   //$("#gnb > ul").css("border", "4px solid blue"); // #gnb 의 첫번째 자식 ul
+   $("#visual + #content").css("border", "4px solid navy"); // #visual 바로 인접 형제인 #content
+   $("#visual ~ #footer").css("border", "4px solid purple"); // #visual의 다음 형제인 #footer
+   $("div.util").css("border", "4px solid pink") // div 안의 .util
+   $(".left, .right, #banner").css("border", "4px solid gray") // 개별 요소
+});</pre>
